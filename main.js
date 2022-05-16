@@ -317,5 +317,23 @@
 //                         company : "zip_industry"}]}
 // }
 
-/// 
+///
+
+let empty = {} // Пустой объект
+let point = {x : 0, y : 4}
+let p2 = {x : point.x, y : point.y + 2}
+
+let book = {
+    "name" : "vadem",
+    "lastname" : "zip",
+    for : "my homies",
+
+    datamoment :{
+    year: "2018",
+    day : "one"
+    }
+}
+
+let emptynew = new Object(); // = empty ^^
+let a = new Array(); //пустой массив
 
