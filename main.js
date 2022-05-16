@@ -304,3 +304,75 @@
 // delete o1.x; // Удалить свойство х из 1
 // console.log(typeof o1.x); // Свойства не существует
 //
+
+
+//ГЛАВА 5!
+
+// let username = null; //является false
+//
+//
+//
+// if (!username)
+//     username = "John Legend";
+//
+// console.log(username)
+//
+// let massiv = [1,2,3,4,5,6,7,8,9], sum = 0;
+//
+// for(let element of massiv){
+//     sum = sum + element;
+// }
+//
+// console.log(sum)
+//
+// let x = {
+//     x1 : 3,
+//     x2 : 7,
+//     x3 : 4
+// };
+//
+// let key = "";
+//
+// for (let k of Object.keys(x)){
+//     key += k;
+// }
+//
+// console.log(key);
+//
+// key = "";
+// let n = 0;
+// for (let k1 of Object.values(x)){
+//     n += k1;
+// }
+//
+// console.log(n)
+//
+// let frequincy = {}
+//
+// for (let letter of "eyafyadyalakudl"){
+//     if (frequincy[letter]){
+//         frequincy[letter]++;
+//     }
+//     else
+//         frequincy[letter] = 1;
+// }
+//
+// console.log(frequincy)
+//
+// let text = "Na па па па па па па па Batman!";
+// let wordset = new Set(text.split(" "));
+//
+// console.log(wordset);
+//
+//
+// let o = {
+//     x : 4,
+//     y : 3,
+//     z : 10
+// }
+//
+// for (let p in o){
+//     console.log(o[p]);
+// }
+
+
