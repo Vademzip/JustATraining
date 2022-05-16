@@ -304,3 +304,16 @@
 // delete o1.x; // Удалить свойство х из 1
 // console.log(typeof o1.x); // Свойства не существует
 //
+
+
+// let x = {
+//     document: {forms: [
+//                 maininfo : name : {
+//                         value : 4,
+//                         cost : 7,
+//                         skill : 1},
+//                   infos : {
+//                         creator : "vadem",
+//                         company : "zip_industry"}]}
+// }
+
