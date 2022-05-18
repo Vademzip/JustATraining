@@ -304,3 +304,247 @@
 // delete o1.x; // Удалить свойство х из 1
 // console.log(typeof o1.x); // Свойства не существует
 //
+
+
+// let x = {
+//     document: {forms: [
+//                 maininfo : name : {
+//                         value : 4,
+//                         cost : 7,
+//                         skill : 1},
+//                   infos : {
+//                         creator : "vadem",
+//                         company : "zip_industry"}]}
+// }
+
+///
+//
+// //глава6!!!
+//
+// let o1 = Object.create({x: 1, y: 2});
+//
+// let o2 = Object.create(Object.prototype)
+//
+// let о = {}; // о наследует методы объекта от Object .prototype
+// о.х = 1 ; // и теперь имеет собственное свойство х.
+//     let р = Object .create (о); //р наследует свойства от о и Object, prototype
+// р.у = 2; // и имеет собственное свойство у.
+//     let q = Object .create (р); //q наследует свойства от р, о и . ..
+// q.z = 3;
+// console.log(q.х+q.y)
+//
+//
+// let unit = {r : 1};
+// let c = Object.create(unit);
+// c.x = 1;
+// c.y = 1;
+// c.r = 2;
+// unit.r; // = 1
+//
+//
+// //Если свойства не существует, то это не ошибка,а если не существует объекта, то это ошибка.
+//
+// let book = {
+//     date : 2014
+// }
+//
+// let surname = undefined;
+//
+// if (book){
+//     console.log("Пройден первый этап проверки")
+//     if (book.author){
+//         console.log("Пройден второй этап проверки")
+//         surname = book.author.name;
+//     }
+// }
+//
+// book.author = {name : "vadem"};
+//
+// surname = book && book.author && book.author.name && book.author.name.first;
+//
+// console.log(surname)
+//
+// surname = book?.author?.name;
+// console.log(surname)
+
+// let o = {x : 1};
+//
+// // console.log("x" in o);
+// // console.log("y" in o);
+// // console.log("toString" in o);
+// //
+// // //------------------
+// //
+// // console.log(o.hasOwnProperty("x"));
+// // console.log(o.hasOwnProperty("y"));
+// // console.log(o.hasOwnProperty("toString"));
+//
+// //--------------
+//
+// console.log(o.propertyIsEnumerable("x"));
+// console.log(o.propertyIsEnumerable("toString"))
+// console.log(Object.prototype.propertyIsEnumerable("toString"))
+// console.log("toString" in Object.prototype)
+//
+// //---------------------------
+// console.log(o.x !== undefined)
+// console.log(o.y !== undefined)
+// console.log(o.toString !== undefined)
+
+
+// let o = {x : undefined};
+// console.log(o.x !== undefined) //false
+// console.log(o.y !== undefined) //false
+// console.log("x" in o) //true
+// console.log("y" in o) //false
+//
+// delete o.x;
+// console.log("x" in o);
+//
+// let o = {
+//     x:1,
+//     y:2,
+//     z:3
+// }
+//
+// for (let p in o){
+//     console.log(p);
+// // }
+//
+// let k = Object.create(o);
+//
+// // for (let p in k){
+// //     console.log(p)
+// // }
+//
+// k.x = 2;
+//
+// // for (let p in k){
+// //     if (!k.hasOwnProperty(p)) continue
+// //     console.log(p)
+// // }
+//
+//
+//
+// let target = {x : 1}, sourse = {y : 2, z : 3}
+//
+// for (let key of Object.keys(sourse)){
+//     target[key] = sourse[key];
+// }
+//
+// console.log(target);
+//
+
+// let o = {
+//     x: 1,
+//     y: {z : [false, null, ""]}
+// }
+//
+// let s = JSON.stringify(o);
+// let p = JSON.parse(s);
+// console.log(o)
+// console.log("\n")
+// console.log(s)
+// console.log("\n")
+// console.log(p)
+
+//
+// let point = {
+//     x : 1000,
+//     y : 2000,
+//     toString : function (){
+//         return `(${this.x}, ${this.y})`;
+//     },
+//     toLocaleString: function () {
+//         return `(${this.x.toLocaleString()}, ${this.y.toLocaleString()})`
+//     },
+//     toJSON: function() { return this.toString()}
+// }
+//
+// console.log(point.toString())
+// console.log(point.toLocaleString())
+// console.log(JSON.stringify(point))
+
+// let x = 1, y = 2;
+// let o = {x,y};
+// console.log(o)
+
+// const PROPERTY_NAME = "p1";
+// function setmame(){
+//     return "p" + 2;
+// }
+//
+// let p = {
+//     [PROPERTY_NAME] : 1,
+//     [setmame()] : 2
+// };
+//
+// console.log(p)
+//
+// let position = { x: 0, y: 0};
+// let dimensions = {width : 100, height : 75};
+// let rect = {...position,...dimensions};
+// console.log(rect.x+rect.y+rect.width.rect.height);
+//
+//
+// let square = {
+//     area : function () {
+//         return this.side*2
+//     },
+//     side : 4
+// }
+// //Эквивалентная запись
+// let square1 = {
+//     area() {
+//         return this.side*2
+//     },
+//     side : 4
+// }
+//
+// const METHOD_NAME = "m" ;
+// const symbol = Symbol();
+// let weirdmethod = {
+//     "method with spaces" (x) {return x + 1},
+//     [METHOD_NAME] (x) {return x + 2},
+//     [symbol](x) {return x + 3}
+// }
+//
+// weirdmethod["method with spaces"](1);
+// weirdmethod[METHOD_NAME](1);
+// weirdmethod[symbol](1);
+
+
+let p = {
+    x : 1.0,
+    y : 1.0,
+
+    get r() {return Math.hypot(this.x,this.y);},
+    set r(newvalue) {
+        let oldvalue = Math.hypot(this.x,this.y);
+        let ratio = newvalue/oldvalue;
+        this.x *= ratio,
+        this.y *= ratio;
+    },
+    get theta(){return Math.atan2(this.x, this.y);}
+}
+
+console.log(p.r);
+console.log(p.theta)
+
+
+
+const serialnum = {
+    _n : 0,
+    get next(){return this.n ++},
+    set next(n){
+        if (n > this._n)
+            this._n = n;
+        else throw new Error("Порядковый номер должен быть больше чем предыдущие порядковые номера");
+    }
+}
+serialnum.next = 10;
+serialnum.next
+console.log(serialnum.next)
+serialnum.next
+console.log(serialnum.next)
+
