@@ -318,22 +318,289 @@
 // }
 
 ///
+//
+// //глава6!!!
+//
+// let o1 = Object.create({x: 1, y: 2});
+//
+// let o2 = Object.create(Object.prototype)
+//
+// let о = {}; // о наследует методы объекта от Object .prototype
+// о.х = 1 ; // и теперь имеет собственное свойство х.
+//     let р = Object .create (о); //р наследует свойства от о и Object, prototype
+// р.у = 2; // и имеет собственное свойство у.
+//     let q = Object .create (р); //q наследует свойства от р, о и . ..
+// q.z = 3;
+// console.log(q.х+q.y)
+//
+//
+// let unit = {r : 1};
+// let c = Object.create(unit);
+// c.x = 1;
+// c.y = 1;
+// c.r = 2;
+// unit.r; // = 1
+//
+//
+// //Если свойства не существует, то это не ошибка,а если не существует объекта, то это ошибка.
+//
+// let book = {
+//     date : 2014
+// }
+//
+// let surname = undefined;
+//
+// if (book){
+//     console.log("Пройден первый этап проверки")
+//     if (book.author){
+//         console.log("Пройден второй этап проверки")
+//         surname = book.author.name;
+//     }
+// }
+//
+// book.author = {name : "vadem"};
+//
+// surname = book && book.author && book.author.name && book.author.name.first;
+//
+// console.log(surname)
+//
+// surname = book?.author?.name;
+// console.log(surname)
 
-let empty = {} // Пустой объект
-let point = {x : 0, y : 4}
-let p2 = {x : point.x, y : point.y + 2}
+// let o = {x : 1};
+//
+// // console.log("x" in o);
+// // console.log("y" in o);
+// // console.log("toString" in o);
+// //
+// // //------------------
+// //
+// // console.log(o.hasOwnProperty("x"));
+// // console.log(o.hasOwnProperty("y"));
+// // console.log(o.hasOwnProperty("toString"));
+//
+// //--------------
+//
+// console.log(o.propertyIsEnumerable("x"));
+// console.log(o.propertyIsEnumerable("toString"))
+// console.log(Object.prototype.propertyIsEnumerable("toString"))
+// console.log("toString" in Object.prototype)
+//
+// //---------------------------
+// console.log(o.x !== undefined)
+// console.log(o.y !== undefined)
+// console.log(o.toString !== undefined)
 
-let book = {
-    "name" : "vadem",
-    "lastname" : "zip",
-    for : "my homies",
 
-    datamoment :{
-    year: "2018",
-    day : "one"
-    }
-}
+// let o = {x : undefined};
+// console.log(o.x !== undefined) //false
+// console.log(o.y !== undefined) //false
+// console.log("x" in o) //true
+// console.log("y" in o) //false
+//
+// delete o.x;
+// console.log("x" in o);
+//
+// let o = {
+//     x:1,
+//     y:2,
+//     z:3
+// }
+//
+// for (let p in o){
+//     console.log(p);
+// // }
+//
+// let k = Object.create(o);
+//
+// // for (let p in k){
+// //     console.log(p)
+// // }
+//
+// k.x = 2;
+//
+// // for (let p in k){
+// //     if (!k.hasOwnProperty(p)) continue
+// //     console.log(p)
+// // }
+//
+//
+//
+// let target = {x : 1}, sourse = {y : 2, z : 3}
+//
+// for (let key of Object.keys(sourse)){
+//     target[key] = sourse[key];
+// }
+//
+// console.log(target);
+//
 
-let emptynew = new Object(); // = empty ^^
-let a = new Array(); //пустой массив
+// let o = {
+//     x: 1,
+//     y: {z : [false, null, ""]}
+// }
+//
+// let s = JSON.stringify(o);
+// let p = JSON.parse(s);
+// console.log(o)
+// console.log("\n")
+// console.log(s)
+// console.log("\n")
+// console.log(p)
 
+//
+// let point = {
+//     x : 1000,
+//     y : 2000,
+//     toString : function (){
+//         return `(${this.x}, ${this.y})`;
+//     },
+//     toLocaleString: function () {
+//         return `(${this.x.toLocaleString()}, ${this.y.toLocaleString()})`
+//     },
+//     toJSON: function() { return this.toString()}
+// }
+//
+// console.log(point.toString())
+// console.log(point.toLocaleString())
+// console.log(JSON.stringify(point))
+
+// let x = 1, y = 2;
+// let o = {x,y};
+// console.log(o)
+
+// const PROPERTY_NAME = "p1";
+// function setmame(){
+//     return "p" + 2;
+// }
+//
+// let p = {
+//     [PROPERTY_NAME] : 1,
+//     [setmame()] : 2
+// };
+//
+// console.log(p)
+//
+// let position = { x: 0, y: 0};
+// let dimensions = {width : 100, height : 75};
+// let rect = {...position,...dimensions};
+// console.log(rect.x+rect.y+rect.width.rect.height);
+//
+//
+// let square = {
+//     area : function () {
+//         return this.side*2
+//     },
+//     side : 4
+// }
+// //Эквивалентная запись
+// let square1 = {
+//     area() {
+//         return this.side*2
+//     },
+//     side : 4
+// }
+//
+// const METHOD_NAME = "m" ;
+// const symbol = Symbol();
+// let weirdmethod = {
+//     "method with spaces" (x) {return x + 1},
+//     [METHOD_NAME] (x) {return x + 2},
+//     [symbol](x) {return x + 3}
+// }
+//
+// weirdmethod["method with spaces"](1);
+// weirdmethod[METHOD_NAME](1);
+// weirdmethod[symbol](1);
+
+
+// let p = {
+//     x : 1.0,
+//     y : 1.0,
+//
+//     get r() {return Math.hypot(this.x,this.y);},
+//     set r(newvalue) {
+//         let oldvalue = Math.hypot(this.x,this.y);
+//         let ratio = newvalue/oldvalue;
+//         this.x *= ratio,
+//         this.y *= ratio;
+//     },
+//     get theta(){return Math.atan2(this.x, this.y);}
+// }
+//
+// console.log(p.r);
+// console.log(p.theta)
+//
+//
+//
+// const serialnum = {
+//     _n : 0,
+//     get next(){return this.n ++},
+//     set next(n){
+//         if (n > this._n)
+//             this._n = n;
+//         else throw new Error("Порядковый номер должен быть больше чем предыдущие порядковые номера");
+//     }
+// }
+// serialnum.next = 10;
+// serialnum.next
+// console.log(serialnum.next)
+// serialnum.next
+// console.log(serialnum.next)
+
+//ГЛАВА 7!!!
+
+// let empty = [];
+// let primes = [1,3,5,67,8,2]
+// let mix = [1,"six", true,]
+//
+// let base = 1024;
+// let baseplus = [base+1,base+2,base+3]
+//
+// let b1 = [[1, {x : 2 , y: 4}],[2, {x : 3, y:4}]]
+//
+// let count = [1,,3];
+// let undefs = [,,]
+//
+// let a = [1,2,3];
+// let b = [4,...a,5];
+//
+// console.log(b)
+//
+// let word = "Hello Darkness My Old Friend";
+// let s = [...word];
+// console.log(s)
+//
+// console.log([...new Set(word)])
+
+// let a = new Array();//Пустой массив
+//
+// let b = new Array(10); //Пустой массив с длинной 10
+//
+// let c = new Array(3,4,5,6,7,2, "testing, testing");
+// console.log(c)
+//
+// //-----------------------
+//
+// let d = Array.of(10); //10 - это не длина,а единственный элемент в массиве
+//
+// let e = Array.of();//Пустой массив
+//
+// let f = Array.of(4,8,9,2,1,3);
+// console.log(f)
+//
+// let g = Array.from(c);
+// // console.log(c == g) //Так нельзя видимо надо по элементам
+// console.log(g)
+
+
+let a = [];//Пустой массив
+a[1000] = 4; //Разреженный массив
+console.log(a.length);
+console.log(a)
+
+let a1 = [,]
+let a2 = [undefined]
+
+console.log(0 in a1)
+console.log(0 in a2)
