@@ -594,13 +594,165 @@
 // console.log(g)
 
 
-let a = [];//Пустой массив
-a[1000] = 4; //Разреженный массив
-console.log(a.length);
-console.log(a)
+// let a = [];//Пустой массив
+// a[1000] = 4; //Разреженный массив
+// console.log(a.length);
+// console.log(a)
+//
+// let a1 = [,]
+// let a2 = [undefined]
+//
+// console.log(0 in a1)
+// console.log(0 in a2)
+//
+// let a = [1,2,3,4,5]
+// a.length = 3;
+// console.log(a)
+// a.length = 0;
+// console.log(a)
+// a.length = 5;
+// console.log(a)//[ <5 empty items> ]
+// a.push(1,4,5,6,7,3);
+// console.log(a)//[ <5 empty items>, 1, 4, 5, 6, 7, 3 ]
+// a.unshift("firstelemetofmassiv");//Добавление элемента в начало массива
+// console.log(a)
+// a.pop()
+// console.log(a)//Удаление элемента из конца массива
+//
+// delete a[7];
+// console.log(a)
+// for (let i = 0;i<6;i++){
+//     a.shift()
+// }
+// console.log(a)
+//
+// let everyother = ""
+//
+// let letters = [..."Hello Darkness My Old Friend"];
+//
+//
+// for (let [index, letter] of letters.entries()){
+//     if (index %2 === 0)
+//         everyother = everyother + letter;
+// }
+//
+//
+// console.log(everyother)
+//
+// let uppercase = ""
+// letters.forEach(letter => { uppercase = uppercase + letter.toUpperCase()})
+// console.log(uppercase)
 
-let a1 = [,]
-let a2 = [undefined]
+// let table = new Array(10);
+// for (let i = 0;i < table.length; i++){
+//     table[i] = new Array(10);
+// }
+//
+// for (let row = 0; row < table.length;row++)
+//     for (let column = 0; column < table.length; column++){
+//         table[row][column] = row * column;
+//     }
+//
+// console.log(table[2][4])
 
-console.log(0 in a1)
-console.log(0 in a2)
+// let data = [1,2,3,4,5], sum = 0;
+// data.forEach(value => {sum += value;})
+// data.forEach(function (value, index, array) {
+//     array[index] = value + 1;
+// })
+//
+// let a = [1,2,3]
+// a.map(x => x*x)
+//
+// let b = [1,5,5,765,3,6,,2,1,33124,23556,46,547,567,4,5345,2,2,43,6,546,54,65,4,6,4,3]
+// // b=b.filter(x=> x<7)//фильтрация
+// // console.log(b)
+//
+// console.log(b.find(x=> x > 4));//Первое значение удолетворяющее запросу
+// console.log(b.findIndex(x=> x>20000));
+// console.log(b[9])
+//
+// console.log(b.every(x => x > 2)); //Каждое число в массиве больше 2-х
+// console.log(b.some(x => x > 10000)); //хотя бы одно число в массиве больше 10000
+
+
+// let array = [4,45,[2,3,[5,6]],[4,5]];
+// console.log(array.flat());
+//
+// let a = [1,2,3]
+// console.log(a.concat(4, 5));
+//
+// console.log(a.concat([4, 5], [6, 7]));
+// console.log(a.concat(4,[5,6,[7,9,10,[1,2]]]));
+
+// let a = [];
+// a.unshift(1);
+// a.unshift(2);
+// console.log(a)//[ 2, 1 ]
+// a = [];
+// a.unshift(1,2)
+// console.log(a)//[ 1, 2 ]
+
+// let a = [1,2,3,4,5]
+// console.log(a.slice(0, 3));//[ 1, 2, 3 ]
+// console.log(a.slice(2));//[ 3, 4, 5 ]
+// console.log(a.slice(1, -1));//[ 2, 3, 4 ]
+// console.log(a.slice(-3, -2));//[ 3 ]
+
+// let a = [1,2,3,4,5,6,7,8,9]
+// console.log(a.splice(2, 3));//Удаляет 3 элемента начиная со 2 индекса
+// console.log(a);
+// a.splice(2,3,"n","e","w");
+// console.log(a);//[ 1, 2, 'n', 'e', 'w', 9 ]
+//
+// a.fill(5,2,6);
+// console.log(a)//[ 1, 2, 5, 5, 5, 5 ]
+// a.push(1,2,3,5,6,8)
+// console.log(a);
+// a.copyWithin(1,3,6);
+// console.log(a);
+
+//
+// let a = [2,4,6,7,2,3,4,51,1]
+// console.log(a.indexOf(4));//1
+// console.log(a.lastIndexOf(2));//4
+// console.log(a.indexOf(145));//-1 т.к. не существует
+// console.log(a.includes(51));//true,т.к 51 есть в массиве
+//
+// a = a.sort();
+// console.log(a);
+//
+// a.sort(function (a, b){
+//     return a - b;
+// })
+// console.log(a)
+//
+// let b = ["Vadem", "Alem", "Sanya", "selfetka"];
+// b.sort(function (x,y){
+//     let a = x.toLowerCase();
+//     let b = y.toLowerCase();
+//     if (a<b) return -1;
+//     if (b>a) return 1;
+//     return  0;
+// })
+//
+// console.log(b);
+//
+// let a = [1,2,4,5,7,,8,,,766,5,4,3,3,5,5];
+// console.log(a.join());//1,2,4,5,7,,8,,,766,5,4,3,3,5,5
+// console.log(a.join(""));//124578766543355
+
+let a = {};
+let i = 0;
+while (i<10){
+    a[i] = i*i;
+    i++;
+}
+
+a.length = i;
+console.log(a);
+
+let total = 0;
+for (let j = 0;j<=a.length;j++){
+    total += a[j];
+}
