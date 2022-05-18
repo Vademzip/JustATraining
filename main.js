@@ -514,37 +514,93 @@
 // weirdmethod[symbol](1);
 
 
-let p = {
-    x : 1.0,
-    y : 1.0,
+// let p = {
+//     x : 1.0,
+//     y : 1.0,
+//
+//     get r() {return Math.hypot(this.x,this.y);},
+//     set r(newvalue) {
+//         let oldvalue = Math.hypot(this.x,this.y);
+//         let ratio = newvalue/oldvalue;
+//         this.x *= ratio,
+//         this.y *= ratio;
+//     },
+//     get theta(){return Math.atan2(this.x, this.y);}
+// }
+//
+// console.log(p.r);
+// console.log(p.theta)
+//
+//
+//
+// const serialnum = {
+//     _n : 0,
+//     get next(){return this.n ++},
+//     set next(n){
+//         if (n > this._n)
+//             this._n = n;
+//         else throw new Error("Порядковый номер должен быть больше чем предыдущие порядковые номера");
+//     }
+// }
+// serialnum.next = 10;
+// serialnum.next
+// console.log(serialnum.next)
+// serialnum.next
+// console.log(serialnum.next)
 
-    get r() {return Math.hypot(this.x,this.y);},
-    set r(newvalue) {
-        let oldvalue = Math.hypot(this.x,this.y);
-        let ratio = newvalue/oldvalue;
-        this.x *= ratio,
-        this.y *= ratio;
-    },
-    get theta(){return Math.atan2(this.x, this.y);}
-}
+//ГЛАВА 7!!!
 
-console.log(p.r);
-console.log(p.theta)
+// let empty = [];
+// let primes = [1,3,5,67,8,2]
+// let mix = [1,"six", true,]
+//
+// let base = 1024;
+// let baseplus = [base+1,base+2,base+3]
+//
+// let b1 = [[1, {x : 2 , y: 4}],[2, {x : 3, y:4}]]
+//
+// let count = [1,,3];
+// let undefs = [,,]
+//
+// let a = [1,2,3];
+// let b = [4,...a,5];
+//
+// console.log(b)
+//
+// let word = "Hello Darkness My Old Friend";
+// let s = [...word];
+// console.log(s)
+//
+// console.log([...new Set(word)])
+
+// let a = new Array();//Пустой массив
+//
+// let b = new Array(10); //Пустой массив с длинной 10
+//
+// let c = new Array(3,4,5,6,7,2, "testing, testing");
+// console.log(c)
+//
+// //-----------------------
+//
+// let d = Array.of(10); //10 - это не длина,а единственный элемент в массиве
+//
+// let e = Array.of();//Пустой массив
+//
+// let f = Array.of(4,8,9,2,1,3);
+// console.log(f)
+//
+// let g = Array.from(c);
+// // console.log(c == g) //Так нельзя видимо надо по элементам
+// console.log(g)
 
 
+let a = [];//Пустой массив
+a[1000] = 4; //Разреженный массив
+console.log(a.length);
+console.log(a)
 
-const serialnum = {
-    _n : 0,
-    get next(){return this.n ++},
-    set next(n){
-        if (n > this._n)
-            this._n = n;
-        else throw new Error("Порядковый номер должен быть больше чем предыдущие порядковые номера");
-    }
-}
-serialnum.next = 10;
-serialnum.next
-console.log(serialnum.next)
-serialnum.next
-console.log(serialnum.next)
+let a1 = [,]
+let a2 = [undefined]
 
+console.log(0 in a1)
+console.log(0 in a2)
