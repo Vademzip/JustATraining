@@ -742,7 +742,7 @@
 // console.log(a.join());//1,2,4,5,7,,8,,,766,5,4,3,3,5,5
 // console.log(a.join(""));//124578766543355
 
-let a = {};
+/*let a = {};
 let i = 0;
 while (i<10){
     a[i] = i*i;
@@ -755,4 +755,312 @@ console.log(a);
 let total = 0;
 for (let j = 0;j<=a.length;j++){
     total += a[j];
+}*/
+
+//Глава 8!!!
+
+// const square = function (x){return x*x};
+//
+// const f = function fact(x) {
+//     if (x <= 1) return 1;
+//     else return x*fact(x-1);
+// }
+// let tensquared = (function (x) {
+//     return x*x;
+// }(10))
+//
+// const sum = (x,y) => {return x+y};
+// const sum2 = (x,y) => x+y;
+//
+// const polynomial = х => х*х + 2*х + 3;//Один параметр,нет скобок
+//
+// const f2 = x => {return {value : x};};
+// const g = x => ({value : x});
+//
+// let squares = [1,2,3,4].map(x=>x*x);
+//
+//
+// let calculator = {
+//     x : 1,
+//     y : 1,
+//     sum : 0,
+//     add() {
+//         this.sum = this.sum + this.x + this.y;
+//     }
+// }
+//
+// console.log(calculator.sum);
+// calculator.add();
+// console.log(calculator.sum);
+// calculator.add();
+// calculator.add();
+// calculator.add();
+// console.log(calculator.sum);
+
+//
+// let o = {
+//     m : function (){
+//         let self = this;
+//         console.log(o === this);
+//         f();
+//         function f(){
+//             console.log(this === o);//this является глобальным объектом, но можно исправить если использовать стрелочные функции, тогда this насследуется
+//             console.log(self === o);
+//
+//         }
+//     }
+// }
+// o.m();
+//
+//
+// function getPropertyName (o,a){
+//     if (a === undefined) a = [];
+//     for (let property in o){
+//         a.push(property);
+//     }
+//     return a;
+// }
+//
+// let o = {
+//     x:1,
+//     y : 3
+// }
+//
+// let p = {
+//     z : 4,
+//     f : 2,
+//     s : 7,
+//     l : 11
+// }
+//
+// let a = getPropertyName(o);
+// console.log(a)
+// getPropertyName(p,a);
+// console.log(a)
+//
+// function hello(o, x = 7, y = 4){//Значения по умолчанию
+//     o.newProppery = x + y;
+// }
+//
+// const rectangle = (height, width = height * 2) =>({width , height})
+//
+// console.log(rectangle(4));
+/*
+
+
+function max (first = -Infinity, ...rest){
+    let maxValue = first;
+    for (let p of rest){
+        if (maxValue < p)
+            maxValue = p;
+    }
+    return maxValue
 }
+
+console.log(max(4, 2, 3, 4, 7, 8, 9, 2, 6, 4, 7, 2, 8, 14, 1, 0));
+
+let numbers = [5, 2, 10, -1, 9, 100, 1];
+console.log(Math.min(...numbers));*/
+/*
+
+function timed(f){
+    return function(...args){
+        console.log(`Вход в функцию ${f.name}`);
+        let startTime = Date.now();
+        try{
+            return f(...args);
+        }
+        finally {
+            console.log(`Выход из ${f.name} спустя ${Date.now()-startTime} мс`);
+        }
+    }
+}
+
+function benchmark(n){
+    let sum = 0;
+    for (let i = 1; i <= n; i++)
+        sum += i;
+    return sum;
+}
+
+console.log(timed(benchmark)(1000000));
+
+function vectorAdd([x1,x2],[y1,y2]) {
+    return [x1+y1,x2+y2];
+}
+
+function vectorMultiply ({x,y,z = 1}, scalar){
+    return {f: x*scalar, y: y*scalar, z: z*scalar};
+}
+let p = {
+    y : 10,
+    f : 2
+}
+console.log(p);
+p = vectorMultiply({x : 2, y : 3},2);
+console.log(p);*/
+
+
+// function arrayCopy({from, to = from, n=from.length,fromIndex = 0,toIndex = 0}) {
+//     let valueToCopy = from.slice(fromIndex,fromIndex + n);
+//     to.splice(toIndex,0,...valueToCopy);
+//     return to;
+// }
+//
+// let a = [1,2,3,4,5], b = [9,8,7,6,5];
+// console.log(arrayCopy({from: a, n: 3, to: b, toIndex: 4}));
+
+// function f([x,y, ...cords],...rest) {
+//     return [x+y,...cords,...rest]
+// }
+//
+// let a = [2,3,5,67,8];
+// let b = [4,8,8,4];
+//
+// console.log(f(a, b));
+//
+// function vectorMultiply({x,y, z = 0, ...props},scalar) {
+//     return {x : x*scalar, Y:y*scalar,z:z*scalar,...props}
+// }
+//
+// console.log(vectorMultiply({x: 2, y: 3, w: -1, l: 10}, 2));
+//
+// function drawCirle({x,y,radius, color : [r,g,b]}) {
+//
+// }
+
+//
+// function sum(a) {
+//     let total = 0;
+//     for (let element of a){
+//         total += element;
+//     }
+//     return total;
+// }
+//
+// // console.log(sum([2, 3, 6, 7]));
+// // // console.log(sum(4))//Ошибка
+// console.log(sum([2,3,"1"]))//Ошибка, элемент [2] - не число
+
+// uniqueInteger.counter = 0;
+//
+// function uniqueInteger() {
+//     return uniqueInteger.counter++
+// }
+
+/*let uniqueInteger1 = (function () {
+    let counter = 0;
+    return function(){
+        return counter++;
+    }
+})
+
+uniqueInteger1();
+
+
+// console.log(uniqueInteger());//1
+// console.log(uniqueInteger());//2
+// console.log(uniqueInteger());//3
+
+function factorial(n) {
+    if (Number.isInteger(n) && (n > 0)){
+        if (!(n in factorial))
+            factorial[n] = n * factorial(n-1)
+        return factorial[n];
+    }
+    else
+        return NaN;
+    }
+    factorial[1] = 1;
+    console.log(factorial[7]);
+    console.log(factorial(8));
+    console.log(factorial[4]);
+console.log(factorial[2]);
+console.log(factorial[7]);*/
+/*
+
+
+function addPrivateProperty(o,name,predicate){
+    let value;
+    o[`get${name}`] = function() {return value};
+    o[`set${name}`] = function (v) {
+        if (predicate && !predicate(v))
+            throw new TypeError(`set${name}: недопустимое значение ${v}`)
+        else
+            value = v;
+    }
+}
+
+let o = {}
+addPrivateProperty(o,"Name",x=> typeof x === "string");
+
+o.setName("Frank");
+console.log(o.getName());
+// o.setName(0);//Нельзя цифру
+
+console.log(addPrivateProperty.length);*/
+
+
+/*
+function f(y) {
+    return this.x + y;
+}
+
+let o = {x : 1};
+
+let g = f.bind(o)
+
+console.log(g(2));//3 = 1 + 2
+
+let p = {
+    x:10,
+    g
+}
+*/
+
+// console.log(p.g(2));
+
+//-----------------
+/*
+
+let sum = (x,y) => x+y;
+let succ = sum.bind(null, 1)//х привязывается к 1
+console.log(succ(2));
+
+function f(y,z){return this.x + y + z}
+let g = f.bind({x : 1},2)
+console.log(g(3));*/
+/*
+
+let data = [1,1,3,5,5]
+
+let total = 0;
+for (let i = 0;i<data.length;i++)
+    total += data[i];
+let mean = total/data.length;
+
+total = 0;
+
+for (let i = 0; i<data.length;i++){
+    let deviation = data[i]-mean;
+    total += deviation*deviation
+}
+let stddev = Math.sqrt(total/(data.length-1))
+console.log(stddev);*/
+
+/*
+
+const sum = (x,y) => x+y;
+const square = x => x*x;
+
+let data = [1,1,3,5,5]
+let mean = data.reduce(sum)/data.length;
+let deviation = data.map(x=>x-mean);
+let stddev = Math.sqrt(deviation.map(square).reduce(sum)/(data.length-1))
+console.log(stddev);
+
+const map = function (a, ...args){return a.map(...args)}
+const reduce = function(a, ...args){return a.reduce(...args)}
+
+let mean2 = reduce(data,sum)/data.length
+let deviation2 = map (data, x => x-mean);*/
