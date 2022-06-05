@@ -1064,3 +1064,52 @@ const reduce = function(a, ...args){return a.reduce(...args)}
 
 let mean2 = reduce(data,sum)/data.length
 let deviation2 = map (data, x => x-mean);*/
+
+
+class Main {
+    constructor() {
+        this.x = 4;
+    }
+}
+
+let r = new Main();
+
+console.log(r instanceof Main);
+
+let f = {
+    x: 4
+}
+
+console.log(f instanceof Main);
+
+
+class Animal {
+    constructor(options) {
+        this.name = options.name
+        this.color = options.color
+    }
+
+    voice (){
+        console.log("This voice from", this.name)
+    }
+}
+
+const dog = new Animal({name : 'Rex',color : 'White'})
+dog.voice();
+
+class Cat extends Animal{
+
+    constructor(options) {
+        super(options)
+
+        this.hasTail = this.hasTail
+        this.type = "cat";
+    }
+
+    voice() {
+        super.voice()
+        console.log("this cat");
+    }
+}
+
+const cat = new Cat({name : "Barys", color : "WhiteBlack"})
