@@ -1065,6 +1065,97 @@ const reduce = function(a, ...args){return a.reduce(...args)}
 let mean2 = reduce(data,sum)/data.length
 let deviation2 = map (data, x => x-mean);*/
 
+//ГЛАВА 9
+
+/*
+class User {
+    constructor(username,password) {
+        this.username = username;
+        this.password = password;
+    }
+    validatePassword (){
+        console.log("Запустился родительский метод")
+        if (this.password.length > 6)
+            return true;
+        else
+            return false
+    }
+}
+
+let a = "ivan";
+let b = "777dsdsdsdssdsd";
+
+const person = new User(a,b);
+console.log(person);
+console.log(person.validatePassword())
+
+class Student extends User {
+    constructor(username,password,nickname) {
+        super(username,password);
+        this.nickname = nickname;
+    }
+    getStudentCourses(){
+        return [1,2]
+    }
+    validatePassword (){
+        super.validatePassword();
+        if (this.password.length > 10)
+            return true;
+        else
+            return false
+    }
+}
+
+let firstStudent = new Student(a,b,"vadem");
+console.log(firstStudent)
+console.log(firstStudent.getStudentCourses())
+console.log(firstStudent.validatePassword())*/
+
+
+/*class User {
+    constructor(name) {
+        this.name = name;
+    }
+    sayHello(){
+        console.log(this.name + " Hello");
+    }
+}
+
+const alex = new User("Alex");
+console.log(alex);
+
+class Person extends User {
+    constructor(name,email) {
+        super(name);
+        this.email = email;
+    }
+    sayHello2 (){
+        console.log(super.sayHello())
+    }
+}
+
+const li = new Person("li", "li@email.ru")
+/!*alex.sayHello()
+li.sayHello()*!/
+li.sayHello2()
+
+function range (from, to){
+    let r = Object.create(range.methods);
+    r.from = from;
+    r.to = to;
+    return r;
+}
+
+range.methods = {
+    includes(x) {return this.from <= x && x <= this.to},
+    *[Symbol.iterator](){
+        for (let x = Math.ceil(this.from);x <= this.to;x++)
+            yield x;
+    },
+    toString(){
+        return "(" + this.from + "..." + this.to + ")";}
+
+}
 
 class Main {
     constructor() {
@@ -1113,3 +1204,257 @@ class Cat extends Animal{
 }
 
 const cat = new Cat({name : "Barys", color : "WhiteBlack"})
+
+
+
+///////////////
+
+class Range {
+    constructor(from, to) {
+        this.from = from;
+        this.to = to;
+    }
+
+    includes(x){
+        return this.from <= x && x <= this.to;
+    }
+
+    *[Symbol.iterator](){
+        for (let x = Math.ceil(this.from);x <= this.to; x++)
+            yield x;
+    }
+    toString(){return `(${this.from}...${this.to})`};
+}
+
+class Span extends Range {
+
+    f = 4;
+    constructor(start, length) {
+        if (length >= 0) {
+            super(start, start + length);
+        } else {
+                super(start + length, start);
+            }
+        }
+    }
+
+let square = class {constructor(x) {
+    this.area = x*x
+}}
+
+console.log(new square(7).area); //49
+
+class Test {
+    f = 10;
+    #a = 4;
+    get a(){return this.#a}
+}
+
+let t1 = new Test();
+console.log(t1.f);
+console.log(t1.a);
+t1.a = 1;
+console.log(t1.a);*/
+
+
+/*class Complex {
+    constructor(real, imaginary) {
+        this.r = real;
+        this.i = imaginary;
+    }
+
+    plus (that){
+        return new Complex(this.r+that.r, this.i + that.i)
+    }
+    times (that){
+        return new Complex(this.r*that.r-this.i*this.i,
+                        this.r*that.i+this.i * that.r)
+    }
+
+    static sum (c,d){return c.plus(d)}
+    static product(c,d){return c.times(d);}
+
+    get real(){return this.r;}
+    get imaginary(){return this.i;}
+    get magnitude(){return Math.hypot(this.r,this.i);}
+
+    toString(){return `{${this.r},${this.i}}`}
+}
+
+Complex.ZERO = new Complex(0,0)
+Complex.ONE = new Complex(1,0)
+Complex.I = new Complex(0,1)
+
+let c = new Complex(2,3);
+console.log(c);
+let d = new Complex(c.i,c.r)
+console.log(d);
+console.log(c.plus(d));
+console.log(c.plus(d).toString());
+
+console.log(Complex.product(c, d));
+
+Complex.prototype.newMethod = function (){
+    console.log("Hello Guys");
+}
+
+c.newMethod();
+
+class TypedMap extends Map{
+    constructor(keyType, valueType, entries) {
+        if (entries){
+            for (let [k,v] of entries) {
+                if (typeof k != keyType || typeof v != valueType)
+                    throw new TypeError(`Неправильный тип для записи [${k}, ${v}]`);
+            }
+        }
+        super(entries);
+        this.keyType = keyType;
+        this.valueType = valueType;
+    }
+    set(key, value) {
+        if (this.keyType && typeof key !== this.keyType)
+            throw new TypeError (` ${key} не относится к типу ${this. keyType}`);
+    }*/
+// }
+
+
+/*
+class Histogram {
+    constructor() {
+        this.map = new Map()
+    }
+
+    count(key){
+        return this.map.get(key) || 0
+    }
+
+    has(key) {return this.count(key) > 0}
+
+    get size () {return this.map.size;}
+
+    add(key) {this.map.set(key, this.count(key) + 1)}
+
+    delete (key) {
+        let count = this.count(key);
+        if (count === 1){
+            this.map.delete(key);
+        } else if (count > 1){
+            this.map.set(key, count-1);
+        }
+    }
+
+    [Symbol.iterator](){return this.map.keys()}
+
+    keys () { return this.map.keys (); }
+    values() { return this.map.values(); }
+    entries() { return this.map.entries (); }
+
+}*/
+
+
+class AbstarctSet{
+    has(x){ throw new Error("Абстрактный метод")}
+}
+
+class NotSet extends AbstarctSet{
+    constructor(set) {
+        super();
+        this.set = set;
+    }
+
+    has(x) {
+        return !this.set.has(x);
+    }
+
+    toString() {return `{x | xE ${this.set.toString()}}`}
+
+}
+
+let f = new NotSet(3);
+
+class Range extends AbstarctSet{
+    constructor(from, to) {
+        super();
+        this.from = from;
+        this.to = to;
+    }
+
+    has(x) {
+        return x>= this.from && this.to >= x;}
+    toString() { return `{ x| ${this.from} <= x <= ${this.to}` }
+}
+
+class AbstractEnumerableSet extends AbstarctSet{
+    get size(){throw new Error ("Абстрактный метод")};
+    [Symbol.iterator](){throw new Error ("Абстрактный метод")}
+
+    isEmpty() {return this.size === 0}
+    toString(){return `{${Array.from(this).join(", ")}`;}
+    equal(set){
+        if (!(set instanceof AbstractEnumerableSet))
+            return false
+        if (this.size !== set.size)
+            return  false
+        for (let element of this){
+            if (!set.has(element))
+                return false
+        }
+        return true
+    }
+}
+
+class SingletonSet extends AbstractEnumerableSet{
+    constructor(member) {
+        super();
+        this.member = member;
+    }
+    has(x) {
+        return x === this.member
+    }
+    get size () {return 1}
+    *[Symbol.iterator](){yield this.member}
+
+}
+
+class AbstractWritableSet extends AbstractEnumerableSet{
+    insert(x){throw new Error ("Абстрактный метод")};
+    remove(x){throw new Error ("Абстрактный метод")};
+
+    add(set){
+        for (let element of set){
+            this.insert(element)
+        }
+    }
+
+    subtract(set){
+        for (let element of set){
+            this.remove(element)
+        }
+    }
+
+    intersect(set){
+        for (let element of set){
+            if (!set.has(element)){
+                this.remove(element)
+            }
+        }
+    }
+
+}
+
+
+class BitSet extends AbstractWritableSet{
+    constructor(max) {
+        super();
+        this.max = max;
+        this.n = 0;
+        this.numBytes = Math.floor(max / 8) + 1;
+        this.data = new Uint8Array(this.numBytes);
+    }
+
+    _valid(x) {return Number.isInteger(x) && (x => 0) && x <= this.max}
+
+    _has(byte,bit){return (this.data[byte] & Bitset.bits[bit]) !== 0 }
+
+}
